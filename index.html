@@ -164,7 +164,8 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navbar: Liquid Glass Pill -->
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-500">
+    <!-- top-4 for mobile, top-6 for desktop -->
+    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-500">
         <div class="glass-pill rounded-full px-2 py-2 flex items-center justify-between">
             
             <!-- Logo Area (Left) -->
@@ -185,7 +186,7 @@
 
             <!-- Action Area (Right) -->
             <div class="flex items-center gap-2 pr-2">
-                <a href="tel:+919778784614" class="hidden sm:flex items-center gap-2 px-6 py-2.5 btn-glass-primary rounded-full text-sm font-semibold tracking-wide">
+                <a href="tel:+917994729522" class="hidden sm:flex items-center gap-2 px-6 py-2.5 btn-glass-primary rounded-full text-sm font-semibold tracking-wide">
                     Call Now
                     <span class="iconify group-hover:translate-x-0.5 transition-transform" data-icon="heroicons:phone-20-solid"></span>
                 </a>
@@ -233,17 +234,17 @@
                 
                 <!-- "After" Text (Sharp) -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
-                    <h1 class="font-heading text-[12vw] font-bold text-white tracking-tighter drop-shadow-2xl leading-none" style="color:black;">
+                    <h1 class="font-heading text-[12vw] font-bold text-white tracking-tighter drop-shadow-2xl leading-none">
                         Wesheild
                     </h1>
-                    <p class="font-heading text-[4vw] font-bold text-white tracking-wide drop-shadow-lg mt-2" style="color: black;">
+                    <p class="font-heading text-[4vw] font-bold text-white tracking-wide drop-shadow-lg mt-2">
                         can fix it!
                     </p>
                 </div>
                 
                 <!-- Subtitle (Revealed at end) -->
                 <div class="absolute bottom-32 w-full text-center z-30 opacity-0" id="hero-subtitle">
-                     <p class="text-white/80 text-xl font-medium tracking-wide" style="color: black;">Facility Management Reimagined.</p>
+                     <p class="text-white/80 text-xl font-medium tracking-wide">Facility Management Reimagined.</p>
                 </div>
             </div>
 
@@ -273,17 +274,18 @@
     <section id="services-pin-wrapper" class="relative h-screen overflow-hidden bg-brand-surface z-20">
         
         <!-- Sticky Header (Stays on left) -->
-        <!-- Added id for animation target -->
-        <div id="services-header" class="absolute top-32 left-6 md:left-20 z-20 max-w-sm pointer-events-none">
+        <!-- Adjusted top for mobile (top-20) vs desktop (top-32) -->
+        <div id="services-header" class="absolute top-24 md:top-32 left-6 md:left-20 z-20 max-w-sm pointer-events-none">
             <span class="text-blue-700 font-bold tracking-widest uppercase text-xs">Our Expertise</span>
             <h2 class="font-heading text-4xl md:text-5xl font-bold text-slate-900 mt-3 mb-4 leading-tight">Complete <br>Facility Care</h2>
             <p class="text-slate-600 font-medium">Professional services tailored for modern infrastructure.</p>
         </div>
 
         <!-- Horizontal Track -->
-        <div id="services-track" class="flex h-full items-center pl-6 md:pl-20 gap-8 pt-20">
-            <!-- Spacer to push cards past the header -->
-            <div class="w-[80vw] md:w-[450px] flex-shrink-0"></div>
+        <!-- Reduced padding pt-10 for mobile -->
+        <div id="services-track" class="flex h-full items-center pl-6 md:pl-20 gap-8 pt-10 md:pt-20">
+            <!-- Spacer to push cards past the header. Reduced on mobile to bring cards closer. -->
+            <div class="w-[15vw] md:w-[450px] flex-shrink-0"></div>
 
             <!-- Service 1: Pest Control -->
             <div class="glass-card service-card-horizontal rounded-[2.5rem] p-8 flex flex-col justify-center hover:bg-white/80 transition-all duration-300 cursor-pointer group">
@@ -358,7 +360,8 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="about" class="py-24 bg-brand-surface overflow-hidden relative">
+    <!-- Adjusted padding to py-12 md:py-24 for mobile -->
+    <section id="about" class="py-12 md:py-24 bg-brand-surface overflow-hidden relative">
         <div class="container mx-auto px-6 mb-12 text-center relative z-10">
             <span class="text-brand-blue font-bold tracking-wider uppercase text-sm">Customer Stories</span>
             <h2 class="font-heading text-4xl font-bold text-slate-900 mt-2 mb-4">Trusted by Bangalore's Best</h2>
@@ -375,7 +378,7 @@
                 <!-- Testimonial Cards Set 1 -->
                 <div class="flex gap-6">
                     <!-- Card 1 -->
-                    <div class="w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
+                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
                         <div class="flex gap-1 text-yellow-400 mb-6">
                             <span class="iconify" data-icon="solar:star-bold"></span>
                             <span class="iconify" data-icon="solar:star-bold"></span>
@@ -393,7 +396,7 @@
                         </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
+                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
                         <div class="flex gap-1 text-yellow-400 mb-6">
                             <span class="iconify" data-icon="solar:star-bold"></span>
                             <span class="iconify" data-icon="solar:star-bold"></span>
@@ -411,7 +414,7 @@
                         </div>
                     </div>
                     <!-- Card 3 -->
-                    <div class="w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
+                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
                         <div class="flex gap-1 text-yellow-400 mb-6">
                             <span class="iconify" data-icon="solar:star-bold"></span>
                             <span class="iconify" data-icon="solar:star-bold"></span>
@@ -433,7 +436,7 @@
                 <!-- Duplicate Set for Infinite Loop -->
                 <div class="flex gap-6">
                     <!-- Card 1 -->
-                    <div class="w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
+                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
                         <div class="flex gap-1 text-yellow-400 mb-6">
                             <span class="iconify" data-icon="solar:star-bold"></span>
                             <span class="iconify" data-icon="solar:star-bold"></span>
@@ -451,7 +454,7 @@
                         </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
+                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
                         <div class="flex gap-1 text-yellow-400 mb-6">
                             <span class="iconify" data-icon="solar:star-bold"></span>
                             <span class="iconify" data-icon="solar:star-bold"></span>
@@ -469,7 +472,7 @@
                         </div>
                     </div>
                     <!-- Card 3 -->
-                    <div class="w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
+                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
                         <div class="flex gap-1 text-yellow-400 mb-6">
                             <span class="iconify" data-icon="solar:star-bold"></span>
                             <span class="iconify" data-icon="solar:star-bold"></span>
@@ -525,9 +528,11 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24">
+    <!-- Compact Padding for Mobile (py-12) -->
+    <section id="contact" class="py-12 md:py-24">
         <div class="container mx-auto px-6">
-            <div class="glass-card rounded-[3rem] p-12 lg:p-20 relative overflow-hidden bg-slate-900/95 border-slate-800">
+            <!-- Reduced padding inside card for mobile p-6 md:p-12 lg:p-20 -->
+            <div class="glass-card rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-20 relative overflow-hidden bg-slate-900/95 border-slate-800">
                 
                 <!-- Glow Effect inside card -->
                 <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600/30 rounded-full blur-[100px] -mr-20 -mt-20"></div>
@@ -539,11 +544,11 @@
                         
                         <!-- Updated Call Action -->
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="tel:+919778784614" class="px-8 py-4 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/50 flex items-center justify-center gap-2 group w-full sm:w-auto">
+                            <a href="tel:+917994729522" class="px-8 py-4 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/50 flex items-center justify-center gap-2 group w-full sm:w-auto">
                                 <span class="iconify text-xl group-hover:animate-pulse" data-icon="solar:phone-calling-bold"></span>
                                 Call Us Now
                             </a>
-                            <a href="https://wa.me/919778784614" target="_blank" class="px-8 py-4 bg-white/10 border border-white/10 text-white rounded-full font-bold hover:bg-white/20 transition-colors shadow-lg flex items-center justify-center gap-2 group w-full sm:w-auto backdrop-blur-md">
+                            <a href="https://wa.me/917994729522" target="_blank" class="px-8 py-4 bg-white/10 border border-white/10 text-white rounded-full font-bold hover:bg-white/20 transition-colors shadow-lg flex items-center justify-center gap-2 group w-full sm:w-auto backdrop-blur-md">
                                 <span class="iconify text-xl text-green-400 group-hover:scale-110 transition-transform" data-icon="ri:whatsapp-fill"></span>
                                 Let's Chat
                             </a>
@@ -556,7 +561,7 @@
                             
                             <!-- Google Map Embed (Filtered for Dark Theme) -->
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31103.07672263593!2d77.63032332646276!3d12.97830491979929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16a419763fd3%3A0x6367a083038077ad!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709228800000!5m2!1sen!2sin" 
+                                src="https://maps.google.com/maps?q=Wesheild%2C%203rd%20Floor%2C%20Raj%20Pinnacle%2C%206th%20Cross%20Rd%2C%20Doddanakundi%20Industrial%20Area%202%2C%20Bengaluru%2C%20Karnataka%20560048&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                                 width="100%" 
                                 height="100%" 
                                 style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2) brightness(0.8);" 
@@ -576,12 +581,12 @@
                                         <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20 shadow-lg">
                                             <span class="iconify text-2xl text-green-400 animate-[bounce_2s_infinite]" data-icon="solar:map-point-bold-duotone"></span>
                                         </div>
-                                        <h4 class="text-white font-bold text-2xl mb-1 tracking-tight">Visit Us</h4>
-                                        <p class="text-slate-300 text-sm font-medium">Indiranagar, Bangalore</p>
+                                        <h4 class="text-white font-bold text-2xl mb-1 tracking-tight">Visit us</h4>
+                                        <p class="text-slate-300 text-sm font-medium">Doddanakundi, Bengaluru</p>
                                     </div>
                                     
                                     <!-- Direction Button -->
-                                    <a href="https://maps.google.com/?q=Indiranagar,Bangalore" target="_blank" class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-500 hover:scale-110 transition-all shadow-lg cursor-pointer pointer-events-auto group/btn">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Wesheild,+3rd+Floor,+Raj+Pinnacle,+6th+Cross+Rd,+Doddanakundi+Industrial+Area+2,+Bengaluru,+Karnataka+560048" target="_blank" class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-500 hover:scale-110 transition-all shadow-lg cursor-pointer pointer-events-auto group/btn">
                                         <span class="iconify text-2xl group-hover/btn:rotate-45 transition-transform duration-300" data-icon="solar:arrow-right-up-bold"></span>
                                     </a>
                                 </div>
@@ -595,7 +600,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/30 bg-white/20 backdrop-blur-sm">
+    <!-- Compact py-8 for mobile -->
+    <footer class="py-8 md:py-12 border-t border-white/30 bg-white/20 backdrop-blur-sm">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
                 <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">
@@ -607,7 +613,7 @@
             <p class="text-slate-600 text-sm">© 2025 Wesheild Facility Management. Bangalore, India.</p>
             
             <div class="flex gap-4">
-                <a href="#" class="text-slate-500 hover:text-blue-600 transition-colors"><span class="iconify text-xl" data-icon="ri:instagram-fill"></span></a>
+                <a href="https://www.instagram.com/wesheildgroup/" target="_blank" class="text-slate-500 hover:text-blue-600 transition-colors"><span class="iconify text-xl" data-icon="ri:instagram-fill"></span></a>
                 <a href="#" class="text-slate-500 hover:text-blue-600 transition-colors"><span class="iconify text-xl" data-icon="ri:twitter-x-fill"></span></a>
                 <a href="#" class="text-slate-500 hover:text-blue-600 transition-colors"><span class="iconify text-xl" data-icon="ri:linkedin-fill"></span></a>
             </div>
@@ -641,22 +647,19 @@
                 }
             });
 
-            // A. Move the Bar Down (Normalized to duration 1)
-            tlScan.to(scannerBar, { top: "100%", ease: "none", duration: 1 }, 0);
-            
-            // Scanner Opacity: Fade In fast, Fade Out at the end
-            tlScan.to(scannerBar, { opacity: 1, duration: 0.1 }, 0);
-            tlScan.to(scannerBar, { opacity: 0, duration: 0.1 }, 0.9);
+            // A. Move the Bar Down
+            tlScan.to(scannerBar, { top: "100%", opacity: 1, ease: "none" }, 0);
 
             // B. Reveal the Clean Layer (Clip Path wipes down)
-            tlScan.to(cleanLayer, { clipPath: "inset(0 0 0% 0)", ease: "none", duration: 1 }, 0);
+            tlScan.to(cleanLayer, { clipPath: "inset(0 0 0% 0)", ease: "none" }, 0);
 
             // C. 3D Parallax: Clean layer snaps forward, Dirty layer pushes back
-            tlScan.fromTo(cleanLayer.querySelector('div'), { scale: 1.1 }, { scale: 1.0, ease: "none", duration: 1 }, 0);
-            tlScan.to(dirtyLayer.querySelector('div'), { scale: 1.2, ease: "none", duration: 1 }, 0);
+            // This creates the "Stabilization" effect
+            tlScan.fromTo(cleanLayer.querySelector('div'), { scale: 1.1 }, { scale: 1.0, ease: "none" }, 0);
+            tlScan.to(dirtyLayer.querySelector('div'), { scale: 1.2, ease: "none" }, 0);
 
-            // D. Reveal Subtitle at the end (appearing as bar disappears)
-            tlScan.to("#hero-subtitle", { opacity: 1, y: -20, duration: 0.2 }, 0.8);
+            // D. Reveal Subtitle at the end
+            tlScan.to("#hero-subtitle", { opacity: 1, y: -20, duration: 0.2 }, 0.9);
             tlScan.to("#scroll-prompt", { opacity: 0, duration: 0.2 }, 0);
 
             // --- SERVICES HORIZONTAL SCROLL ---
