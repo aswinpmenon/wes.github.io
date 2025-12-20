@@ -60,6 +60,26 @@
     </script>
 
     <style>
+        /* --- EASY CONFIGURATION --- */
+        /* Edit these values to adjust positions, sizes, and colors globally */
+        :root {
+            /* HERO TEXT POSITION (0% is top/left, 50% is center, 100% is bottom/right) */
+            --hero-text-x: 50%;
+            --hero-text-y: 50%;
+            
+            /* HERO IMAGE POSITION (Focus point of the building) */
+            --hero-bg-pos-x: center; 
+            --hero-bg-pos-y: center;
+
+            /* SIZING */
+            --hero-text-size: 12vw; /* Font size for UNMANAGED/WESHEILD */
+            
+            /* COLORS */
+            --color-primary: #2563eb;   /* Brand Blue */
+            --color-bg-start: #BFDBFE;  /* Light Blue Gradient Start */
+            --color-bg-end: #FFFFFF;    /* White Gradient End */
+        }
+
         /* Lenis Scroll Styling */
         html.lenis, html.lenis body { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto !important; }
@@ -67,7 +87,7 @@
         .lenis.lenis-stopped { overflow: hidden; }
 
         body {
-            background: linear-gradient(180deg, #BFDBFE 0%, #FFFFFF 100%);
+            background: linear-gradient(180deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%);
             background-attachment: fixed;
             min-height: 100vh;
             color: #0f172a;
@@ -100,12 +120,30 @@
             position: absolute;
             inset: 0;
             background-size: cover;
-            background-position: center;
+            /* Use Variables for Image Position */
+            background-position: var(--hero-bg-pos-x) var(--hero-bg-pos-y);
+        }
+        
+        /* Text Positioning Class */
+        .hero-text-position {
+            position: absolute;
+            top: var(--hero-text-y);
+            left: var(--hero-text-x);
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            /* Ensure pointer events don't block scroll if text covers huge area */
+            pointer-events: none; 
+        }
+        
+        .hero-title {
+            font-size: var(--hero-text-size);
+            line-height: 1;
         }
 
         /* Custom Scan Line Glow */
         .scan-line-shadow {
-            box-shadow: 0 0 15px #3b82f6, 0 0 30px #3b82f6, 0 0 45px #3b82f6;
+            box-shadow: 0 0 15px var(--color-primary), 0 0 30px var(--color-primary), 0 0 45px var(--color-primary);
         }
 
         /* Dirty Layer Noise Texture */
@@ -200,7 +238,6 @@
     </nav>
 
     <!-- HERO: DIGITAL SCANNER & RESTORATION -->
-    <!-- Removed z-0, let it sit naturally in the stack, handled by GSAP pin-spacer -->
     <section id="scanner-hero" class="relative w-full h-screen bg-black scanner-container">
         
         <!-- WRAPPER: Pinned during scroll -->
@@ -209,16 +246,17 @@
             <!-- 1. DIRTY LAYER (Background / "Before") -->
             <div class="image-layer z-0" id="dirty-layer">
                 <!-- Placeholder Image -->
-                <div class="absolute inset-0 bg-cover bg-center filter grayscale contrast-125 brightness-50 sepia-[.3]" 
-                     style="background-image: url('3.png'); transform: scale(1.1);">
+                <div class="absolute inset-0 bg-cover filter grayscale contrast-125 brightness-50 sepia-[.3]" 
+                     style="background-image: url('5.jpg'); transform: scale(1.1); background-position: var(--hero-bg-pos-x) var(--hero-bg-pos-y);">
                 </div>
                 <!-- Noise & Vignette -->
                 <div class="absolute inset-0 noise-overlay"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80"></div>
                 
                 <!-- "Before" Text (Glitched) -->
-                <div class="absolute inset-0 flex items-center justify-center z-10 opacity-60">
-                    <h1 class="font-heading text-[12vw] font-bold text-transparent bg-clip-text bg-gradient-to-b from-slate-400 to-slate-800 tracking-tighter mix-blend-overlay blur-[2px]">
+                <!-- Uses 'hero-text-position' class linked to CSS variables -->
+                <div class="hero-text-position z-10 opacity-60">
+                    <h1 class="font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-slate-400 to-slate-800 tracking-tighter mix-blend-overlay blur-[2px] hero-title">
                         UNMANAGED?
                     </h1>
                 </div>
@@ -228,21 +266,18 @@
             <!-- Revealed by clip-path -->
             <div class="image-layer z-10" id="clean-layer" style="clip-path: inset(0 0 100% 0);">
                 <!-- Placeholder Image -->
-                <div class="absolute inset-0 bg-cover bg-center" 
-                     style="background-image: url('4.png');">
+                <div class="absolute inset-0 bg-cover" 
+                     style="background-image: url('6.jpg'); background-position: var(--hero-bg-pos-x) var(--hero-bg-pos-y);">
                 </div>
                 
                 <!-- "After" Text (Sharp) -->
-                <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
-                    <!-- Glass Wrapper for improved visibility -->
-                    <div class="bg-black/20 backdrop-blur-md border border-white/10 p-8 sm:p-12 rounded-[2rem] text-center shadow-2xl">
-                        <h1 class="font-heading text-[12vw] font-bold text-white tracking-tighter drop-shadow-2xl leading-none">
-                            Wesheild
-                        </h1>
-                        <p class="font-heading text-[4vw] font-bold text-white tracking-wide drop-shadow-lg mt-2">
-                            can fix it!
-                        </p>
-                    </div>
+                <div class="hero-text-position z-20 flex flex-col items-center justify-center text-center" style="top: calc(var(--hero-text-y) - 5%);">
+                    <h1 class="font-heading font-bold text-white tracking-tighter drop-shadow-2xl leading-none hero-title">
+                        Wesheild
+                    </h1>
+                    <p class="font-heading text-[4vw] font-bold text-white tracking-wide drop-shadow-lg mt-2">
+                        can fix it!
+                    </p>
                 </div>
                 
                 <!-- Subtitle (Revealed at end) -->
@@ -252,6 +287,7 @@
             </div>
 
             <!-- 3. SCANNER BAR (The laser) -->
+            <!-- Background color uses var(--color-primary) via JS or CSS class overrides if needed, kept as bg-blue-400 for now to match Tailwind config -->
             <div id="scanner-bar" class="absolute top-0 left-0 w-full h-[4px] bg-blue-400 z-50 scan-line-shadow opacity-0">
                 <!-- Glowing ends -->
                 <div class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-[50px] bg-blue-500/20 blur-xl"></div>
@@ -532,10 +568,8 @@
     </section>
 
     <!-- Contact Section -->
-    <!-- Compact Padding for Mobile (py-12) -->
     <section id="contact" class="py-12 md:py-24">
         <div class="container mx-auto px-6">
-            <!-- Reduced padding inside card for mobile p-6 md:p-12 lg:p-20 -->
             <div class="glass-card rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-20 relative overflow-hidden bg-slate-900/95 border-slate-800">
                 
                 <!-- Glow Effect inside card -->
@@ -604,7 +638,6 @@
     </section>
 
     <!-- Footer -->
-    <!-- Compact py-8 for mobile -->
     <footer class="py-8 md:py-12 border-t border-white/30 bg-white/20 backdrop-blur-sm">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
