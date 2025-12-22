@@ -42,6 +42,8 @@
                     animation: {
                         'marquee-fast': 'marquee 15s linear infinite',
                         'marquee-slow': 'marquee 40s linear infinite',
+                        /* Slower animation for the longer list of reviews */
+                        'marquee-super-slow': 'marquee 80s linear infinite',
                         'vertical-marquee': 'verticalMarquee 1.5s linear infinite',
                     },
                     keyframes: {
@@ -187,13 +189,15 @@
         /* Animated Glass Pill for Hero Text */
         .glass-pill-animated {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
+            /* Lighter, more transparent background */
+            background: rgba(255, 255, 255, 0.05); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* Lighter border */
+            border: 1px solid rgba(255, 255, 255, 0.1); 
             padding: 12px 32px;
             border-radius: 9999px;
-            color: #000000; /* Changed to pure black */
+            color: #000000; /* Pure black */
             font-size: 1.125rem; /* text-lg */
             font-weight: 500; /* font-medium */
             letter-spacing: 0.025em; /* tracking-wide */
@@ -229,12 +233,12 @@
 
         @keyframes pulse-border {
             0% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), inset 0 0 0 rgba(255,255,255,0.1);
-                border-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.05), inset 0 0 0 rgba(255,255,255,0.05);
+                border-color: rgba(255, 255, 255, 0.1);
             }
             100% {
-                box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(255,255,255,0.1);
-                border-color: rgba(255, 255, 255, 0.6);
+                box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.15), inset 0 0 10px rgba(255,255,255,0.05);
+                border-color: rgba(255, 255, 255, 0.25);
             }
         }
         
@@ -376,7 +380,7 @@
                 <!-- Text removed to allow embedded image text -->
                 
                 <!-- Subtitle (Revealed at end) -->
-                <div class="absolute bottom-40 w-full text-center z-30 opacity-0 px-4" id="hero-subtitle">
+                <div class="absolute bottom-32 w-full text-center z-30 opacity-0 px-4" id="hero-subtitle">
                      <div class="glass-pill-animated">
                         Facility Management Reimagined.
                      </div>
@@ -511,64 +515,308 @@
             <div class="absolute top-0 left-0 h-full w-12 md:w-32 bg-gradient-to-r from-brand-surface to-transparent z-10 pointer-events-none"></div>
             <div class="absolute top-0 right-0 h-full w-12 md:w-32 bg-gradient-to-l from-brand-surface to-transparent z-10 pointer-events-none"></div>
 
-            <div class="flex animate-marquee-slow gap-6 w-max hover:[animation-play-state:paused]">
-                <!-- Testimonial Cards Set 1 -->
-                <div class="flex gap-6">
+            <div class="flex animate-marquee-super-slow w-max hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
+                
+                <!-- ORIGINAL SET (7 Reviews) -->
+                <div class="flex">
                     <!-- Card 1 -->
-                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
-                        <div class="flex gap-1 text-yellow-400 mb-6">
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                        </div>
-                        <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">"Wesheild's deep cleaning service was a game changer for our new office in Whitefield. They handled everything from carpets to HVAC vents with zero downtime."</p>
-                        <div class="flex items-center gap-4 pt-6 border-t border-slate-50">
-                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-brand-blue font-bold text-lg">AS</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Anita Sharma</h4>
-                                <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">HR Director, TechPark</p>
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"Wesheild's deep cleaning service was a game changer for our new office in Whitefield. They handled everything from carpets to HVAC vents with zero downtime."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-brand-blue font-bold text-lg">AS</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Anita Sharma</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">HR Director, TechPark</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- Card 2 -->
-                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
-                        <div class="flex gap-1 text-yellow-400 mb-6">
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold-duotone"></span>
-                        </div>
-                        <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">"We subscribed to the Homepro AMC plan. It's such a relief knowing I can call one number for plumbing, electrical, or pest issues in my apartment."</p>
-                        <div class="flex items-center gap-4 pt-6 border-t border-slate-50">
-                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-brand-green font-bold text-lg">RM</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Rahul Menon</h4>
-                                <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Homeowner, Indiranagar</p>
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold-duotone"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"We subscribed to the Homepro AMC plan. It's such a relief knowing I can call one number for plumbing, electrical, or pest issues in my apartment."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-brand-green font-bold text-lg">RM</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Rahul Menon</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Homeowner, Indiranagar</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- Card 3 -->
-                    <div class="w-[300px] md:w-[400px] bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-default">
-                        <div class="flex gap-1 text-yellow-400 mb-6">
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
-                            <span class="iconify" data-icon="solar:star-bold"></span>
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"Professional team for overhead tank cleaning. They used mechanized equipment and showed us before/after pictures. Highly recommended."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-lg">VK</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Vikram K.</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Secretary, Palm Grove</p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">"Professional team for overhead tank cleaning. They used mechanized equipment and showed us before/after pictures. Highly recommended."</p>
-                        <div class="flex items-center gap-4 pt-6 border-t border-slate-50">
-                            <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-lg">VK</div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Vikram K.</h4>
-                                <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Secretary, Palm Grove</p>
+                    </div>
+
+                    <!-- Card 4 (New) -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"The herbal termite treatment was exactly what we needed. Safe for our pets and completely odorless. The team was very professional."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-lg">PR</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Dr. Priya Rao</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Villa Owner, Whitefield</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 (New) -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold-duotone"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"Our apartment's generator panel had recurring issues. Wesheild's MEP team diagnosed and fixed it in one visit. Very impressive."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-lg">RG</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Rajesh Gowda</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Facility Manager, Sobha</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 (New) -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"The team is incredibly punctual and polite. Booking via WhatsApp was seamless. Great service for busy professionals!"</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 font-bold text-lg">ST</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Sarah Thomas</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">HSR Layout</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 (New) -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold-duotone"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"Moved into a new villa that needed serious cleaning. They made the floors look brand new. Highly recommended for deep cleaning."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg">AR</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Arjun Reddy</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Jayanagar</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- DUPLICATE SET (For Seamless Loop) -->
+                <div class="flex">
+                    <!-- Card 1 Duplicate -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"Wesheild's deep cleaning service was a game changer for our new office in Whitefield. They handled everything from carpets to HVAC vents with zero downtime."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-brand-blue font-bold text-lg">AS</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Anita Sharma</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">HR Director, TechPark</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 Duplicate -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold-duotone"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"We subscribed to the Homepro AMC plan. It's such a relief knowing I can call one number for plumbing, electrical, or pest issues in my apartment."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-brand-green font-bold text-lg">RM</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Rahul Menon</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Homeowner, Indiranagar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 Duplicate -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"Professional team for overhead tank cleaning. They used mechanized equipment and showed us before/after pictures. Highly recommended."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-lg">VK</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Vikram K.</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Secretary, Palm Grove</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 Duplicate -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"The herbal termite treatment was exactly what we needed. Safe for our pets and completely odorless. The team was very professional."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-lg">PR</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Dr. Priya Rao</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Villa Owner, Whitefield</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 Duplicate -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold-duotone"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"Our apartment's generator panel had recurring issues. Wesheild's MEP team diagnosed and fixed it in one visit. Very impressive."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-lg">RG</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Rajesh Gowda</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Facility Manager, Sobha</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 Duplicate -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"The team is incredibly punctual and polite. Booking via WhatsApp was seamless. Great service for busy professionals!"</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 font-bold text-lg">ST</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Sarah Thomas</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">HSR Layout</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 Duplicate -->
+                    <div class="pr-6 md:pr-8">
+                        <div class="w-[300px] md:w-[400px] h-full glass-card p-8 rounded-3xl hover:bg-white/80 transition-all duration-300 group cursor-default">
+                            <div class="flex gap-1 text-yellow-400 mb-6">
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold"></span>
+                                <span class="iconify" data-icon="solar:star-bold-duotone"></span>
+                            </div>
+                            <p class="text-slate-700 text-base mb-8 leading-relaxed font-medium">"Moved into a new villa that needed serious cleaning. They made the floors look brand new. Highly recommended for deep cleaning."</p>
+                            <div class="flex items-center gap-4 pt-6 border-t border-slate-200/50">
+                                <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg">AR</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Arjun Reddy</h4>
+                                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Jayanagar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
